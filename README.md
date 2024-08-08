@@ -25,7 +25,7 @@ npm run build
 
 ## EXCEL data import, reading, export
 
-More info at [https://docs.sheetjs.com/docs/getting-started/installation/frameworks/](https://docs.sheetjs.com/docs/getting-started/installation/frameworks/).
+More info at [SheetJS](https://docs.sheetjs.com/docs/getting-started/installation/frameworks/).
 
 ### Installation and import
 
