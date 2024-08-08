@@ -2,7 +2,7 @@
 
 ## Basic commands
 
-Create a new project using [https://vitejs.dev/guide/](Vite) and a TypeScript template
+Create a new project using [https://vitejs.dev/guide/]([Vite](https://vitejs.dev/guide/)) and a TypeScript template
 ```
 npm create vite@latest . -- --template react-ts
 ```
