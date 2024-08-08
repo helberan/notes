@@ -2,15 +2,15 @@
 
 ## Basic commands
 
-Create a new project using [https://docs.sheetjs.com/docs/getting-started/installation/frameworks/](https://docs.sheetjs.com/docs/getting-started/installation/frameworks/)Vite and a TypeScript template
+Create a new project using [https://vitejs.dev/guide/](Vite) and a TypeScript template
 ```
 npm create vite@latest . -- --template react-ts
 ```
-
+Run the app
 ```
 npm run dev
 ```
-
+Build the app
 ```
 npm run build
 ```
