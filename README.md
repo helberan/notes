@@ -73,6 +73,48 @@ function MyComponent() {
 
 ## Redux
 
+### Installation and basic setup
+
+Install dependency to your project.
+```
+npm install @reduxjs/toolkit react-redux
+```
+
+Create store `index.ts` ideally in a separate folder e.g. `/src/store/index.ts`.
+```ts
+import { configureStore } from '@reduxjs/toolkit';
+
+const store = configureStore({
+  reducer: {
+    //this is where we'll add parts of the store
+  },
+});
+
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+
+export default store;
+```
+
+Implement the store into your app using `Provider` and your created `store`.
+```ts
+import ReactDOM from 'react-dom/client';
+import App from './App.tsx';
+import { Provider } from 'react-redux';
+import store from './store/index.ts';
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+```
+
+### Creating slices
+
+
+
+
 ## Security
 
 ## EXCEL data import, reading, export
