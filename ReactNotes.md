@@ -204,6 +204,7 @@ export const Example = () => {
 # Security - .env
 
 Some sensitive data, such as API keys should not be accessible and commited to git.
+More details at: [dotenv](https://www.npmjs.com/package/dotenv)
 
 ## Installation
 
