@@ -201,7 +201,18 @@ export const Example = () => {
 ```
 
 
-# Security
+# Security - .env
+
+Some sensitive data, such as API keys should not be accessible and commited to git.
+
+## Installation
+
+```
+npm install dotenv
+```
+
+
+
 
 # EXCEL data import, reading, export
 
