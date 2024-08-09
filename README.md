@@ -1,6 +1,4 @@
-# React notes
-
-## Basic commands
+# Basic commands
 
 Create a new project using [Vite](https://vitejs.dev/guide/) and a TypeScript template
 ```
@@ -15,9 +13,9 @@ Build the app
 npm run build
 ```
 
-## React Router
+# React Router
 
-### Installation and import
+## Installation and import
 
 Install dependencies to your project.
 ```
@@ -29,7 +27,7 @@ Import BrowserRouter at the top of your components structure.
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 ```
 
-### Implementation example
+## Implementation example
 
 ```ts
 <Router>
@@ -47,7 +45,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 </Router>
 ```
 
-### useNavigate
+## useNavigate
 
 `useNavigate` is a hook, which redirects the user to a different url just like `Link` component.
 Compared to `Link`, `useNavigate` is used in a ts/js logic and not in JSX.
@@ -71,16 +69,24 @@ function MyComponent() {
 }
 ```
 
-## Redux
+# Redux
 
-### Installation and basic setup
+## Installation and basic setup
 
-Install dependency to your project.
+Install Redux Toolkit and React-Redux as dependencies:
 ```
 npm install @reduxjs/toolkit react-redux
 ```
 
-Create store `index.ts` ideally in a separate folder e.g. `/src/store/index.ts`.
+I'll be using this folder structure:
+```scss
+src/
+  store/
+    index.ts       // Store configuration
+    numberSlice.ts // Slice for a number state
+```
+
+Create store `index.ts`:
 ```ts
 import { configureStore } from '@reduxjs/toolkit';
 
@@ -96,7 +102,7 @@ export type RootState = ReturnType<typeof store.getState>;
 export default store;
 ```
 
-Implement the store into your app using `Provider` and your created `store`.
+Integrate the store into your app using `Provider` and your created `store`:
 ```ts
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
@@ -110,11 +116,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 );
 ```
 
-### Creating slices
+## Creating slices
 
-Let's say you want to globally store your state - the state is going to be a user selected number.
-To do this you need to create a "slice" where your data will be stored.
-
+For example, let's create a slice to store a number:
 ```ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
@@ -134,13 +138,73 @@ export const { setNumberState } = numberSlice.actions;
 export default numberSlice.reducer;
 ```
 
-## Security
+Add the numberSlice reducer to the store:
+```ts
+import { configureStore } from '@reduxjs/toolkit';
+import numberReducer from './numberSlice';
 
-## EXCEL data import, reading, export
+const store = configureStore({
+  reducer: {
+    number: numberReducer,
+  },
+});
+
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+
+export default store;
+```
+
+## Accessing stored data
+
+Use `useSelector` to access the state:
+```ts
+import { useSelector } from 'react-redux';
+import { RootState } from './store/index';
+
+export const Example = () => {
+  const number = useSelector((state: RootState) => state.number);
+
+  return (
+    <div>
+      <p>Number from store: {number}</p>
+    </div>
+  );
+};
+```
+
+## Updating stored data
+
+Use `useDispatch` to update the state:
+```ts
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from './store/index';
+import { setNumberState } from './store/numberSlice';
+
+export const Example = () => {
+  const dispatch: AppDispatch = useDispatch();
+
+  const handleNumberChange = () => {
+    dispatch(setNumberState(1));
+  };
+
+  return (
+    <div>
+      <p>Click to change the value of the number in store:</p>
+      <button onClick={handleNumberChange}>Change</button>
+    </div>
+  );
+};
+```
+
+
+# Security
+
+# EXCEL data import, reading, export
 
 More info at [SheetJS](https://docs.sheetjs.com/docs/getting-started/installation/frameworks/).
 
-### Installation and import
+## Installation and import
 
 Install dependency to your project.
 ```
@@ -151,7 +215,7 @@ Import XLSX where you want to use it.
 import * as XLSX from 'xlsx';
 ```
 
-### IMPORT
+## IMPORT
 
 I have created a button that lets you import a .xlsx document, once the document is selected, the function `handleImport` is called.
 
@@ -184,7 +248,7 @@ const handleImport = (e: React.ChangeEvent<HTMLInputElement>) => {
 ```
 
  
-### EXPORT
+## EXPORT
 
 I have created a button that lets you export data to a .xlsx document, once the button is clicked a `handleExport` function is called.
 
