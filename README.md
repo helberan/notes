@@ -112,8 +112,27 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
 ### Creating slices
 
+Let's say you want to globally store your state - the state is going to be a user selected number.
+To do this you need to create a "slice" where your data will be stored.
 
+```ts
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+const initialState: number = 0;
+
+const numberSlice = createSlice({
+  name: 'numberSlice',
+  initialState,
+  reducers: {
+    setNumberState(state, action: PayloadAction<number>) {
+      return action.payload;
+    },
+  },
+});
+
+export const { setNumberState } = numberSlice.actions;
+export default numberSlice.reducer;
+```
 
 ## Security
 
