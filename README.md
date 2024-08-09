@@ -70,6 +70,9 @@ function MyComponent() {
 ```
 
 # Redux
+Redux is a state management library for JavaScript applications, that helps you manage the state of your app in a more predictable and organized way.
+Redux simplifies state management by centralizing your application's state in a single place called a store.
+The store holds all the state for your app, allowing different parts of your app to access and update the state consistently.
 
 ## Installation and basic setup
 
