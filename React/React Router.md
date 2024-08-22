@@ -39,6 +39,7 @@ return (
 ## useNavigate
 
 `useNavigate` is a hook, which redirects the user to a different url just like `Link` component.
+
 Compared to `Link`, `useNavigate` is used in a ts/js logic and not in JSX.
 
 ```ts
