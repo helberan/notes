@@ -6,7 +6,7 @@ More info at [SheetJS](https://docs.sheetjs.com/docs/getting-started/installatio
 ## Installation and import
 
 Install dependency to your project.
-```
+```bash
 npm install --save https://cdn.sheetjs.com/xlsx-0.20.2/xlsx-0.20.2.tgz
 ```
 Import XLSX where you want to use it.
