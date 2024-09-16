@@ -1,6 +1,6 @@
 # MobX
 
-('https://mobx.js.org/README.html')['MobX'] is a simple, scalable and battle tested **state management** JS library.
+[MobX](https://mobx.js.org/README.html) is a simple, scalable and battle tested **state management** JS library.
 
 - **state** - objects, arrays, primitives, references
 - **actions** - functions that alter the state
