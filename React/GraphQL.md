@@ -42,6 +42,20 @@ const GET_COUTNRIES = gql`
 `;
 ```
 
+recieved:
+```json
+{
+  "data": {
+    "countries": [
+      {
+        "name": "Czech Republic",
+        "capital": "Prague",
+      }
+    ]
+  }
+}
+```
+
 ## Mutation
 
 Mutation is used to **alter data** on the server (creating, updating, or deleting records).
@@ -169,9 +183,41 @@ const handleClick = () => {
 
 ### data
 
+```json
+{
+  "data": {
+    "countries": [
+      {
+        "name": "Czech Republic",
+        "capital": "Prague",
+        "currency": "CZK"
+      },
+      {
+        "name": "United States",
+        "capital": "Washington D.C.",
+        "currency": "USD"
+      }
+    ]
+  }
+}
+```
+
 ### loading
 
+loading state is automatically true until either the data is successfully received or an error occurs.
+
 ### error
+
+```json
+{
+  "errors": [
+    {
+      "message": "Field 'country' is undefined",
+      "locations": [{ "line": 2, "column": 3 }]
+    }
+  ]
+}
+```
 
 ## Complete setup
 
