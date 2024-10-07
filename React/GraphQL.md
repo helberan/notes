@@ -261,10 +261,10 @@ export const CountryFind = () => {
 
   return (
     <>
-      <label>
+      <label htmlFor="countryInput">
         Type country name:
         <br />
-        <input type="text" placeholder="India..." onChange={handleChange} />
+        <input type="text" id="countryInput" placeholder="India..." onChange={handleChange} />
       </label>
       <button onClick={handleClick}>Search</button>
       {loading && <div>Loading...</div>}
